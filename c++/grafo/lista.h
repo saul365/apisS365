@@ -12,15 +12,21 @@
 
 typedef int item;
 
-struct Node_Type
+/*struct Node_Type
 {
 	item data;
 	struct Node_Type* next;
 };
+*/
+class:Node{
 
-typedef struct Node_Type Node;
+public:
+	Node(item info);
+	item data;
+	Node_T next;
+}
 
-Node* NewNode(item info);
+
 
 
 /**
@@ -28,7 +34,7 @@ Node* NewNode(item info);
  */
 
 
-typedef struct{
+/*typedef struct{
 
 	Node * first;
 	Node * last;
@@ -37,28 +43,35 @@ typedef struct{
 	
 	
 }SLL;
+*/
+class SLL{
+public:
+	Node first;
+	Node last;
+	Node current;
 
-SLL* New_SLL();
-void SLL_Delete(SLL* this);
-bool SLL_InsertBack(SLL * this,item x);
-bool SLL_InsertFront(SLL* this,item x);
-bool SLL_InsertAt(SLL* this, item x);
-item SLL_RemoveFront(SLL* this);
-item SLL_RemoveBack(SLL* this);
-item SLL_RemoveAt(SLL* this);
-bool SLL_IsEmpty(SLL* this);
-item SLL_Get(SLL* this,size_t pos);
-size_t SLL_Size(SLL* this);
-bool SLL_FindIf(SLL* this,item busqueda);
-bool SLL_MoveRight(SLL* this);
-bool SLL_MoveLeft(SLL * this);
+	SLL();
+	void Delete(SLL* this);
+	bool InsertBack(SLL * this,item x);
+	bool InsertFront(SLL* this,item x);
+	bool InsertAt(SLL* this, item x);
+	item RemoveFront(SLL* this);
+	item RemoveBack(SLL* this);
+	item RemoveAt(SLL* this);
+	bool IsEmpty(SLL* this);
+	item Get(SLL* this,size_t pos);
+	size_t Size(SLL* this);
+	bool FindIf(SLL* this,item busqueda);
+	bool MoveRight(SLL* this);
+	bool MoveLeft(SLL * this);
 
-void SLL_First(SLL* this);
+	void First(SLL* this);
 
-void SLL_Next(SLL* this);
+	void Next(SLL* this);
 
-void SLL_Purge( SLL* this );
-item SLL_SeeCurrent(SLL* this);
+	item SeeCurrent(SLL* this);
+	void Purge( SLL* this );
+}
 
 
 #endif
