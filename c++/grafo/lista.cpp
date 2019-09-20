@@ -2,27 +2,23 @@
 
 #include "lista.h"
 
-Node* NewNode(item info){
-	Node * p=(Node *) malloc(sizeof(Node));
-	if(p){
-		p->data=info;
-		p->next=NULL;
-	}
+Node::Node(item info){
+		data=info;
+		next=NULL;
 	
-	return p;
 }
 
 
 SLL::SLL(){
 
 
-	p->first=NULL;
-	p->current=NULL;
-	p->last=NULL;
-	p->size=0;
+	first=NULL;
+	current=NULL;
+	last=NULL;
+	size=0;
 	return p;
 }
-void SLL_Delete(SLL *this){
+SLL::Delete(SLL *this){
 	assert(this);
 	if(!SLL_IsEmpty(this)){
 	
@@ -34,7 +30,7 @@ void SLL_Delete(SLL *this){
 	}
 	free(this);
 }
-bool SLL_InsertFront(SLL * this,item x){
+bool SLL::InsertFront(SLL * this,item x){
 	Node* n= NewNode(x);
 	if(!n) return false;
 	
@@ -52,7 +48,7 @@ bool SLL_InsertFront(SLL * this,item x){
 	}
 	return true;
 }
-bool SLL_InsertBack(SLL * this, item x){
+bool SLL::InsertBack(SLL * this, item x){
 	Node *n=NewNode(x);
 	if (!n) return false;
 	if(!SLL_IsEmpty(this)){
@@ -68,7 +64,7 @@ bool SLL_InsertBack(SLL * this, item x){
  this->last=n;
  return true;
 }
-bool SLL_InsertAt(SLL * this,item x){
+bool SLL::InsertAt(SLL * this,item x){
 		
 		Node *n=NewNode(x);
 		if (n==NULL){
@@ -98,7 +94,7 @@ bool SLL_InsertAt(SLL * this,item x){
 	return true;
 
 }
-item SLL_RemoveFront(SLL *this){
+item SLL::RemoveFront(SLL *this){
 	assert(this);
 	assert(!SLL_IsEmpty(this));
 	Node* newF=this->first->next;
@@ -109,7 +105,7 @@ item SLL_RemoveFront(SLL *this){
 	return x;
 
 }
-item SLL_RemoveBack(SLL* this){
+item SLL::RemoveBack(SLL* this){
 	assert(this);
 	assert(!SLL_IsEmpty(this));
 	item x=this->last->data;
@@ -134,7 +130,7 @@ item SLL_RemoveBack(SLL* this){
 	}
 	return x;
 }
-item SLL_RemoveAt(SLL* this){
+item SLL::RemoveAt(SLL* this){
 	assert(this);
 	assert(!SLL_IsEmpty(this));
 	Node* Index=this->first;
@@ -174,7 +170,7 @@ item SLL_RemoveAt(SLL* this){
 	return x;
 }
 
-bool SLL_FindIf(SLL* this, item busqueda ){
+bool SLL::FindIf(SLL* this, item busqueda ){
 	assert( this );
 
 	Node* it = this->first;
@@ -193,12 +189,12 @@ bool SLL_FindIf(SLL* this, item busqueda ){
 	return false;
 }
 
-bool SLL_IsEmpty(SLL* this){
+bool SLL::IsEmpty(SLL* this){
 		assert(this);
 		return this->size==0;	
 }
 
-bool SLL_MoveRight(SLL * this){
+bool SLL::MoveRight(SLL * this){
 	assert(this);
 	assert(!SLL_IsEmpty(this));
 
@@ -211,7 +207,7 @@ bool SLL_MoveRight(SLL * this){
 	return true;
 }
 
-bool SLL_MoveLeft(SLL* this){
+bool SLL::MoveLeft(SLL* this){
 	assert(this);
 	assert(!SLL_IsEmpty(this));
 	
@@ -226,7 +222,7 @@ bool SLL_MoveLeft(SLL* this){
 	return true;
 }
 
-void SLL_First(SLL* this)
+void SLL::First(SLL* this)
 {
 	assert(this);
 
@@ -234,7 +230,7 @@ void SLL_First(SLL* this)
 
 }
 
-void SLL_Purge( SLL* this )
+void SLL::Purge( SLL* this )
 {
 	assert(this);
 	while(this->first!=NULL){
@@ -248,7 +244,7 @@ void SLL_Purge( SLL* this )
 
 }
 
-void SLL_Next(SLL* this)
+void SLL::Next(SLL* this)
 {
 	assert(this);
 	if(this->current!=this->last)
@@ -259,7 +255,7 @@ void SLL_Next(SLL* this)
 
 }
 
-item SLL_SeeCurrent(SLL* this)
+item SLL::SeeCurrent(SLL* this)
 {	
 	assert(this);
 	assert(!SLL_IsEmpty(this));
