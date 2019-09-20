@@ -1,5 +1,7 @@
 #ifndfef _GRAFO_INC
 #define _GRAFO_INC_
+#include <stdlib.h>
+#include <vector>
 
 class nodo{
 public:
@@ -13,6 +15,8 @@ public:
 
 class grafo{
 public:
-	
+	std::vector<nodo> nodos;
+	grafo(int num);
+	recorrido(int start,int end);
 }
 #endif
