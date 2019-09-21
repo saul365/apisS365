@@ -4,8 +4,8 @@
 using namespace std;
 
 int main(){
-	cout<<"Ingrese cuantas casas hay:";
-	int n;
+	int n=0;
+	cout<<"Ingrese cuantas casas hay: "<<endl;
 	cin>>n;
 	cout<<n;
 	int prim=0,seg=0;
@@ -17,6 +17,8 @@ int main(){
 		casas.nodoAdd(seg,prim);
 	}
 	casas.printCalles();
+	casas.busqueda();
+	casas.printPeligro();
 	
 
 }

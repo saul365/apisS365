@@ -12,6 +12,7 @@ public:
 	void busqueda(void);
 	bool reco(int i,int search,int prev,std::vector<std::vector<int>> nodos);
 	void printCalles();
+	void printPeligro();
 private:
 	std::vector<std::vector<int>> nodos;
 	std::vector<std::vector<int>> calles;

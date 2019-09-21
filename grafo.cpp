@@ -53,3 +53,9 @@ void Grafo::printCalles(){
 	}
 
 }
+void Grafo::printPeligro(){
+	for(int i=0;i<num-1;i++){
+		cout<<peligro[i]<<endl;
+	}
+
+}
