@@ -6,11 +6,14 @@
 class nodo{
 public:
 	int id;
-	int* calles;
+	std::vector<int> calles;
 	int max;
-	int conexiones;
-	int* ids;
+	std::vector<int> ids;
+	static std::vector<int> peligro;
 	nodo(int id, int max);
+	search(int id);
+private:
+	search(int id,int calle);
 }
 
 class grafo{
