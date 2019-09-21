@@ -6,6 +6,7 @@ Grafo::Grafo(int num){
 	nodos.reserve(num);
 	for(int i=0;i<num;i++){
 		nodos.push_back(std::vector<int>(num-1));
+		calles.push_back(std::vector<int>(num-1));
 		peligro.push_back(0);
 		visited.push_back(false);
 	}
@@ -13,6 +14,7 @@ Grafo::Grafo(int num){
 void Grafo::busqueda(void){
 		for(int i=0;i<num-2;i++){
 		for(int search=i+1;search<num+1;search++){
+			visited[i]=true;
 			bool done=false;
 				for(int j=0;j<nodos[1].size();j++){
 					if(nodos[i][j]==search){
@@ -23,7 +25,7 @@ void Grafo::busqueda(void){
 				for(int j=0;j<nodos[1].size();j++){
 						if(!visited[nodos[i][j]]){
 							if(reco(nodos[i][j]-1,search,i,nodos)){
-								peligro[calles[i][j]]++;
+								peligro[calles[i][j]-1]++;
 								
 							}
 						}
@@ -35,7 +37,7 @@ void Grafo::busqueda(void){
 
 bool Grafo::reco(int i,int search,int prev, std::vector<std::vector<int>> nodos){
 				for(int j=0;j<nodos[1].size();j++){
-						if(!visited[nodos[i][j]-1]&&nodos[i][j]){
+						if(!visited[nodos[i][j]-1]&&nodos[i][j]!=prev+1){
 							if(reco(nodos[i][j]-1,search,i,nodos)){
 								peligro[calles[i][j]]++;
 								return true;
