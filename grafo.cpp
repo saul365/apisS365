@@ -47,3 +47,9 @@ bool Grafo::reco(int i,int search,int prev, std::vector<std::vector<int>> nodos)
 void Grafo::nodoAdd(int id,int value){
 	calles[id].push_back(value);
 }
+void Grafo::printCalles(){
+	for(int i=0;i<num;i++){
+	cout<<i<<":"<<calles[i][0]<<calles[i][1]<<"\n";
+	}
+
+}

@@ -1,7 +1,9 @@
 #ifndef _GRAFO_INC_
 #define _GRAFO_INC_
-#include <stdlib.h>
+#include <iostream>
 #include <vector>
+
+using namespace std;
 
 class Grafo{
 public:
@@ -9,6 +11,8 @@ public:
 	void nodoAdd(int id, int value);
 	void busqueda(void);
 	bool reco(int i,int search,int prev,std::vector<std::vector<int>> nodos);
+	void printCalles();
+private:
 	std::vector<std::vector<int>> nodos;
 	std::vector<std::vector<int>> calles;
 	std::vector<int> peligro;
