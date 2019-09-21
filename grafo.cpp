@@ -46,8 +46,10 @@ bool Grafo::reco(int i,int search,int prev, std::vector<std::vector<int>> nodos)
 	}
 	return false;
 }
-void Grafo::nodoAdd(int id,int value){
-	calles[id].push_back(value);
+void Grafo::nodoAdd(int id,int nodo,int value){
+	
+	nodos[nodo].push_back(value);
+	calles[nodo].push_back(id);
 }
 void Grafo::printCalles(){
 	for(int i=0;i<num;i++){
