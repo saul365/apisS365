@@ -3,23 +3,26 @@
 #include <stdlib.h>
 #include <vector>
 
+/*
 class nodo{
 public:
 	int id;
 	std::vector<int> calles;
 	int max;
 	std::vector<int> ids;
-	static std::vector<int> peligro;
 	nodo(int id, int max);
-	search(int id);
+	std::vector<int> peligro;
 private:
-	search(int id,int calle);
+	void search(int id,int calle);
 }
+*/
 
 class grafo{
 public:
-	std::vector<nodo> nodos;
+	std::vector<vector> nodos;
+	std::vector<vector> calles;
 	grafo(int num);
 	recorrido(int start,int end);
+	void search(int id);
 }
 #endif
