@@ -21,6 +21,7 @@ class grafo{
 public:
 	std::vector<vector> nodos;
 	std::vector<vector> calles;
+	std::vector<int> peligro;
 	grafo(int num);
 	recorrido(int start,int end);
 	void search(int id);
