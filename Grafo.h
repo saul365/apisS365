@@ -8,7 +8,7 @@ public:
 	Grafo(int num);
 	void nodoAdd(int id, int value);
 	void busqueda(void);
-	bool reco(int i,int search,std::vector<std::vector<int>> nodos);
+	bool reco(int i,int search,int prev,std::vector<std::vector<int>> nodos);
 	std::vector<std::vector<int>> nodos;
 	std::vector<std::vector<int>> calles;
 	std::vector<int> peligro;

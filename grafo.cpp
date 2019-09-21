@@ -10,33 +10,33 @@ Grafo::Grafo(int num){
 		visited.push_back(false);
 	}
 }
-Grafo::busqueda(void){
+void Grafo::busqueda(void){
 		for(int i=0;i<num-2;i++){
 		for(int search=i+1;search<num+1;search++){
 			bool done=false;
 				for(int j=0;j<nodos[1].size();j++){
 					if(nodos[i][j]==search){
 						done=true;
-						
 					}
+				}
 				if(!done){
 				for(int j=0;j<nodos[1].size();j++){
 						if(!visited[nodos[i][j]]){
-							if(reco(nodos[i][j],search,nodos)){
+							if(reco(nodos[i][j]-1,search,i,nodos)){
 								peligro[calles[i][j]]++;
 								
 							}
 						}
-					
 				}
-		}		
-	}
+				}		
+		}
+		}
 }
 
-Grafo::reco(int i,int search, vector nodos){
+bool Grafo::reco(int i,int search,int prev, std::vector<std::vector<int>> nodos){
 				for(int j=0;j<nodos[1].size();j++){
-						if(!visited[nodos[i][j]]){
-							if(reco(nodos[i][j],search,nodos)){
+						if(!visited[nodos[i][j]-1]&&nodos[i][j]){
+							if(reco(nodos[i][j]-1,search,i,nodos)){
 								peligro[calles[i][j]]++;
 								return true;
 							}
@@ -44,6 +44,6 @@ Grafo::reco(int i,int search, vector nodos){
 	}
 	return false;
 }
-Grafo::nodoAdd(int id,int value){
+void Grafo::nodoAdd(int id,int value){
 	calles[id].push_back(value);
 }
