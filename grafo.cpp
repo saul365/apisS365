@@ -34,6 +34,5 @@ grafo::search(){
 			}while(!done);	
 		}
 	}
-	
 }
 
